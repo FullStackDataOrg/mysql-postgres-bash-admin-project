@@ -1,0 +1,11 @@
+graph TD
+  subgraph Phase1 [Phase 1 - PostgreSQL]
+    A[postgres-setup.sh] --> B[User Management\n& Role Privileges]
+    B --> C[Backup\npg_dump]
+    C --> D[Restore\npg_restore]
+  end
+
+  subgraph Phase2 [Phase 2 - MySQL]
+    E[billing.sql\nRestore file] --> F[Data Recovery\n& Indexing]
+    F --> G[mybackup.sh\nAutomated Backup]
+  end
